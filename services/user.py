@@ -18,4 +18,5 @@ def getAllUsers():
     # print({'res': jsonify(users)})
     print(type(users))
     print(users)
-    return {'result': 'users'}
+    res = [user.to_json() for user in users]
+    return {'res': res}
