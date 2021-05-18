@@ -12,6 +12,18 @@ from app import db
 class News(db.Model):
     __tablename__ = 'news'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(128))
-    author = db.Column(db.String(64))
-    # TODO to be continued
+    title = db.Column(db.String(255))
+    cover = db.Column(db.String(255))
+    author = db.Column(db.String(255))
+    pubdate = db.Column(db.String(255))
+    content = db.Column(db.String(255))
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'cover': self.cover,
+            'author': self.author,
+            'pubdate': self.pubdate,
+            'content': self.content
+        }
